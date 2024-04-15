@@ -21,6 +21,8 @@ public class SimplifiedColorChooserPanel extends AbstractColorChooserPanel {
     private final int rows;
     private final int cols;
 
+    private static final int DEFAULT_CELL_SIZE = 35;
+
     /**
      * Creates a new SimplifiedColorChooserPanel.
      *
@@ -36,10 +38,10 @@ public class SimplifiedColorChooserPanel extends AbstractColorChooserPanel {
         this.cols = numberOfColors / rows;
         this.colorOffset = (float) 1 / numberOfColors;
         this.cellSize = cellSize;
-        if (cellSize < 50) {
+        if (cellSize < DEFAULT_CELL_SIZE) {
             this.baseBorderSize = 1;
         } else {
-            this.baseBorderSize = cellSize / 50;
+            this.baseBorderSize = cellSize / DEFAULT_CELL_SIZE;
         }
     }
 
@@ -47,7 +49,7 @@ public class SimplifiedColorChooserPanel extends AbstractColorChooserPanel {
      * Default SimplifiedColorChooserPanel with 16 colors and a cellSize of 35 pixels.
      */
     public SimplifiedColorChooserPanel() {
-        this(16, 35);
+        this(16, DEFAULT_CELL_SIZE);
     }
 
     @Override
